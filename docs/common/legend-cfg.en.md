@@ -2,26 +2,39 @@
 
 <description>**optional** _horizontal | vertical_ </description>
 
-Layout
+Layout of legend.
+
+##### title
+
+<description>**optional** _G2LegendTitleCfg_ </description>
+
+Legend title configuration is not displayed by default. _G2LegendTitleCfg_ Configuration is as follows:
+
+| Properties | Type     | Default | Description                                                                         |
+| ---------- | -------- | ------- | ----------------------------------------------------------------------------------- |
+| title   | _string_ | Content of legend title                                            |
+| spacing    | _number_ | -       | The spacing between the title and the legend item                                   |
+| style      | _object_ | -       | Text style configuration item, refer to [Graphic Style](/zh/docs/api/graphic-style) |
 
 ##### position
 
 <description>**optional** _string_ </description>
 
-The position of legend is optional:
+The position of legend is optional:'top', 'top-left', 'top-right', 'left', 'left-top', 'left-bottom', 'right', 'right-top', 'right-bottom', 'bottom', 'bottom-left', 'bottom-right'。
 
-- `top`
-- `top-left`
-- `top-right`
-- `right`
-- `right-top`
-- `right-bottom`
-- `left`
-- `left-top`
-- `left-bottom`
-- `bottom`
-- `bottom-left`
-- `bottom-right`
+<playground path="component/legend/demo/legend-position.jsx" rid="legend-position"></playground>
+
+##### offsetX
+
+<description>**optional** _number_ </description>
+
+Legends offset in the x direction.
+
+##### offsetY
+
+<description>**optional** _number_ </description>
+
+Legends offset in the y direction.
 
 ##### background
 
@@ -29,16 +42,16 @@ The position of legend is optional:
 
 Background box configuration item. _LegendBackgroundCFG_ is configured as follows:
 
-| Properties | Type               | Default | Description                                             |
-| ---------- | ------------------ | ------- | ------------------------------------------------------- |
-| padding    | number \| number[] | -       | White space in the background                           |
-| style      | object             | -       | Background style configuration, Reference Graphic Style |
+| Properties | Type               | Description                                             |
+| ---------- | ------------------  | ------------------------------------------------------- |
+| padding    | _number \| number[]_ | White space in the background                           |
+| style      | _ShapeAttr_     | Background style configuration, Reference [Graphic Style](/en/docs/api/graphic-style) |
 
 ##### flipPage
 
 <description>**optional** _boolean_ </description>
 
-Apply to <tag color="green" text="Classification legend">Classification legend</tag>,whether to page when there are too many legend items.
+Apply to <tag color="green" text="Classification legend">Classification legend</tag>,whether to page when there are too many legend items. (⚠️ 暂不支持多行展示分页)
 
 ##### pageNavigator
 
@@ -46,10 +59,10 @@ Apply to <tag color="green" text="Classification legend">Classification legend</
 
 Apply to <tag color="green" text="Classification legend">Classification legend</tag>, configure the style of page navigator, it works when legend is in flipPage. Types of _LegendPageNavigatorCfg_ are as follow:
 
-| Properties | Type     | Default | Description          |
-| ------ | --------------------- | ------ | -------------- |
-| marker.style | _PageNavigatorMarkerStyle_ | -      | 分页器指示箭头配置项    |
-| text.style   | _PageNavigatorTextStyle_   | -      | The text style of page info.    |
+| Properties | Type     | Description          |
+| ------ | --------------------- | -------------- |
+| marker.style | _PageNavigatorMarkerStyle_ | 分页器指示箭头配置项    |
+| text.style   | _PageNavigatorTextStyle_   | The text style of page info.    |
 
 Types of **_PageNavigatorMarkerStyle_** are as follow:
 
@@ -92,17 +105,6 @@ pageNavigator: {
 },
 ```
 
-
-##### handler
-
-<description>**optional** _ContinueLegendHandlerCfg_ </description>
-Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, configuration items for slider _ContinueLegendHandlerCfg_ is configured as follows:
-
-| Properties | Type     | Default | Description                                                                 |
-| ---------- | -------- | ------- | --------------------------------------------------------------------------- |
-| size       | _number_ | -       | Slider size                                                                 |
-| style      | _object_ | -       | Slider configuration, reference [Graphic Style](/zh/docs/api/graphic-style) |
-
 ##### itemHeight
 
 <description>**optional** _number_ _default:_ `null`</description>
@@ -127,12 +129,6 @@ Apply to <tag color="green" text="Classification legend">Classification legend</
 | spacing    | _number_   | `false` | The spacing between legend item marker and the following name                    |
 | formatter  | _function_ | -       | Format function, `(text: string, item: ListItem, index: number) => any;`         |
 
-##### itemSpacing
-
-<description>**optional** _number_ </description>
-
-Apply to <tag color="green" text="Classification legend">Classification legend</tag>, control the horizontal spacing of legend items.
-
 ##### itemValue
 
 <description>**optional** _LegendItemValueCfg_ </description>
@@ -145,31 +141,13 @@ Apply to <tag color="green" text="Classification legend">Classification legend</
 | alignRight | _boolean_  | `false` | Right-align, false by default, only when setting legend item width.                  |
 | formatter  | _function_ | -       | Format function, `(text: string, item: ListItem, index: number) => any;`             |
 
-##### animate
+<playground path="component/legend/demo/legend-item-value.ts" rid="legend-item-value"></playground>
 
-<description>**optional** _boolean_ </description>
+##### itemSpacing
 
-Whether to turn on the animation switch.
+<description>**optional** _number_ </description>
 
-##### animateOption
-
-<description>**optional** _ComponentAnimateOption_ </description>
-
-Animation parameter configuration, which takes effect if and only if the animate property is true, that is, when the animation is turned on. Animation configuration details are as follows:
-
-`markdown:docs/common/animate-option.en.md`
-
-##### label
-
-<description>**optional** _ContinueLegendLabelCfg_ </description>
-
-Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, a configuration item for the text, _ContinueLegendLabelCfg_ Configuration is as follows:
-
-| Properties | Type     | Default | Description                                                                                                                                                                                                                                      |
-| ---------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| align      | _string_ | -       | The alignment of text with the slider <br/> - rail : Align with the slide rail, at both ends of the slide rail <br/> - top, bottom: Legends are valid when laid out horizontally <br/> - left, right: Legends are valid when laid out vertically |
-| style      | _object_ | -       | Text style configuration item, reference [Graphic Style](/zh/docs/api/graphic-style)                                                                                                                                                             |
-| spacing    | _number_ | -       | The distance between the text and the slide                                                                                                                                                                                                      |
+Apply to <tag color="green" text="Classification legend">Classification legend</tag>, control the horizontal spacing of legend items.
 
 ##### marker
 
@@ -179,88 +157,22 @@ Apply to <tag color="green" text="Classification legend">Classification legend</
 
 `markdown:docs/common/marker.en.md`
 
-##### min
-
-<description>**optional** _number_ </description>
-
-Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, select the minimum value of the range.
-
-##### max
-
-<description>**optional** _number_ </description>
-
-Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, select the maximum value of the range.
-
 ##### maxWidth
 
 <description>**optional** _number_ </description>
 
-Apply to <tag color="green" text="Classification legend">Classification legend</tag>, the maximum width of the legend item.
+Apply to <tag color="green" text="Classification legend">Classification legend</tag>, the maximum width of the legend item. 当 layout 等于 'horizontal' 时，生效，当图例项横向排布，超过最大宽度时，会结合 `flipPage: true` 进行分页。
 
 ##### maxHeight
 
 <description>**optional** _number_ </description>
 
-Apply to <tag color="green" text="Classification legend">Classification legend</tag>, the maximum height of the legend item.
-
-##### offsetX
-
-<description>**optional** _number_ </description>
-
-Legends offset in the x direction.
-
-##### offsetY
-
-<description>**optional** _number_ </description>
-
-Legends offset in the y direction.
-
-##### rail
-
-<description>**optional** _ContinueLegendRailCfg_ </description>
-Apply to <tag color="green" text="Classification legend">Classification legend</tag>, a style configuration item for the legend slider (background)._ContinueLegendRailCfg_ Configuration is as follows:
-
-| Properties    | Type     | Default | Description                                                                                                                                |
-| ------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| type          | _string_ | -       | rail type: color and size                                                                                                                  |
-| size          | _number_ | -       | The width of the slide rail                                                                                                                |
-| defaultLength | _number_ | -       | The default length of the slider. When maxWidth,maxHeight is limited, this property is not used and the length is automatically calculated |
-| style         | _object_ | -       | Slide rail style, refer to [Graphic Style](/zh/docs/api/graphic-style)                                                                     |
+Apply to <tag color="green" text="Classification legend">Classification legend</tag>, the maximum height of the legend item. 当 layout 等于 'vertical' 时，生效，当图例项纵向排布，超过最大高度时，会结合 `flipPage: true` 进行分页。
 
 ##### reversed
 
 <description>**optional** _boolean_ </description>
 Apply to <tag color="green" text="Classification legend">Classification legend</tag>, whether to display legend items in reverse order.
-
-##### slidable
-
-<description>**optional** _boolean_ </description>
-Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, whether the slider can slide.
-
-##### title
-
-<description>**optional** _G2LegendTitleCfg_ </description>
-
-Legend title configuration is not displayed by default. _G2LegendTitleCfg_ Configuration is as follows:
-
-| Properties | Type     | Default | Description                                                                         |
-| ---------- | -------- | ------- | ----------------------------------------------------------------------------------- |
-| spacing    | _number_ | -       | The spacing between the title and the legend item                                   |
-| style      | _object_ | -       | Text style configuration item, refer to [Graphic Style](/zh/docs/api/graphic-style) |
-
-##### track
-
-<description>**optional** _ContinueLegendTrackCfg_ </description>
-Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, select the color block style configuration item for the range. _ContinueLegendTrackCfg_ Configuration is as follows:
-
-| Properties | Type     | Default | Description                                                                     |
-| ---------- | -------- | ------- | ------------------------------------------------------------------------------- |
-| style      | _object_ | -       | Selected range of styles, reference [Graphic Style](/zh/docs/api/graphic-style) |
-
-##### values
-
-<description>**optional** _number[]_ </description>
-Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, selected value.
 
 ##### custom
 
@@ -281,3 +193,90 @@ Apply to <tag color="green" text="Classification legend">Classification legend</
 | marker     | _MarkerCfg_ |          | marker                               |
 
 `markdown:docs/common/marker.en.md`
+
+##### min
+
+<description>**optional** _number_ </description>
+
+Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, select the minimum value of the range.
+
+##### max
+
+<description>**optional** _number_ </description>
+
+Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, select the maximum value of the range.
+
+##### value
+
+<description>**optional** _number[]_ </description>
+
+Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, 当前选中的范围.
+
+##### slidable
+
+<description>**optional** _boolean_ _default:_ `true`</description>
+Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, whether the slider can slide.
+
+##### rail
+
+<description>**optional** _ContinueLegendRailCfg_ </description>
+Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, a style configuration item for the legend slider (background)._ContinueLegendRailCfg_ Configuration is as follows:
+
+| Properties    | Type     | Default | Description                                                                                                                                |
+| ------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| type          | _string_ | -       | rail type: color and size, default: 'color'                                                                                                     |
+| size          | _number_ | -       | The width of the slide rail                                                                                                                |
+| defaultLength | _number_ | -       | The default length of the slider, default: 100. When maxWidth,maxHeight is limited, this property is not used and the length is automatically calculated |
+| style         | _object_ | -       | Slide rail style, refer to [Graphic Style](/zh/docs/api/graphic-style)                                                                     |
+
+
+|**rail.type='color'**| **rail.type='size** |
+|---|---|
+|![color](https://gw.alipayobjects.com/zos/antfincdn/jwMUDJ63aN/72957823-0148-4b24-bbf4-c756959467d3.png)|![size](https://gw.alipayobjects.com/zos/antfincdn/t%26LwpJHUA6/52de13d5-b232-4efb-aacf-6d673778d92a.png)|
+
+##### label
+
+<description>**optional** _ContinueLegendLabelCfg_ </description>
+
+Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, a configuration item for the text, _ContinueLegendLabelCfg_ Configuration is as follows:
+
+| Properties | Type     | Default | Description                                                                                                                                                                                                                                      |
+| ---------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| align      | _string_ | -       | The alignment of text with the slider <br/> - rail : Align with the slide rail, at both ends of the slide rail <br/> - top, bottom: Legends are valid when laid out horizontally <br/> - left, right: Legends are valid when laid out vertically |
+| style      | _object_ | -       | Text style configuration item, reference [Graphic Style](/zh/docs/api/graphic-style)                                                                                                                                                             |
+| spacing    | _number_ | -       | The distance between the text and the slide                                                                                                                                                                                                      |
+
+##### track
+
+<description>**optional** _ContinueLegendTrackCfg_ </description>
+Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, select the color block style configuration item for the range. _ContinueLegendTrackCfg_ Configuration is as follows:
+
+| Properties | Type     | Default | Description                                                                     |
+| ---------- | -------- | ------- | ------------------------------------------------------------------------------- |
+| style      | _object_ | -       | Selected range of styles, reference [Graphic Style](/zh/docs/api/graphic-style) |
+
+##### handler
+
+<description>**optional** _ContinueLegendHandlerCfg_ </description>
+Apply to <tag color="cyan" text="Continuous legend">Continuous legend</tag>, configuration items for slider. (暂不支持自定义)
+
+_ContinueLegendHandlerCfg_ is configured as follows:
+
+| Properties | Type     | Default | Description                                                                 |
+| ---------- | -------- | ------- | --------------------------------------------------------------------------- |
+| size       | _number_ | -       | Slider size, default: 10                                                             |
+| style      | _object_ | -       | Slider configuration, reference [Graphic Style](/zh/docs/api/graphic-style) |
+
+##### animate
+
+<description>**optional** _boolean_  _default:_ `false`</description>
+
+Whether to turn on the animation switch.
+
+##### animateOption
+
+<description>**optional** _ComponentAnimateOption_ </description>
+
+Animation parameter configuration, which takes effect if and only if the animate property is true, that is, when the animation is turned on. Animation configuration details are as follows:
+
+`markdown:docs/common/animate-option.en.md`

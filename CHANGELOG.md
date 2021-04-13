@@ -1,3 +1,50 @@
+#### 2.3.18 (2021-04-12)
+
+##### Chores
+
+*  修复控制台 warning ([#2472](https://github.com/antvis/g2plot/pull/2472)) ([d0177dbd](https://github.com/antvis/g2plot/commit/d0177dbdc9e0ea021de3bbd32728675868ac17e3))
+*  update build workflows node & add jest maxWorkers ([#2470](https://github.com/antvis/g2plot/pull/2470)) ([c9d79f18](https://github.com/antvis/g2plot/commit/c9d79f1892cc98c130faa3e58a57ecfbaac614f0))
+
+##### Documentation Changes
+
+*  文档错误 ([#2500](https://github.com/antvis/g2plot/pull/2500)) ([c5a83826](https://github.com/antvis/g2plot/commit/c5a838264b8ce78acb9ddce391009409471d9062))
+*  图表组件文档完善 ([#2481](https://github.com/antvis/g2plot/pull/2481)) ([081971de](https://github.com/antvis/g2plot/commit/081971de7546ec4e2a06de149a321886215373fe))
+*  完善图例文档 & 增加图表组件的示例导航 & 补充图例两个 demo ([#2477](https://github.com/antvis/g2plot/pull/2477)) ([0740b371](https://github.com/antvis/g2plot/commit/0740b37117adde828d51ef39f45076c835ca0876))
+*  完善 axis 文档（含 title, line, tickLine, subTickLine 等） ([#2460](https://github.com/antvis/g2plot/pull/2460)) ([7a651f7e](https://github.com/antvis/g2plot/commit/7a651f7e1e709cfcdf644a221d69cd2b463f2cd5))
+
+##### New Features
+
+*  为双轴图增加 setState 功能 ([#2488](https://github.com/antvis/g2plot/pull/2488)) ([61a3ed81](https://github.com/antvis/g2plot/commit/61a3ed810e76cd0ca03b3a5cd1d313f54b0df3cb))
+* **options:**  13+图表提供获取默认配置项的静态方法 ([#2489](https://github.com/antvis/g2plot/pull/2489)) ([f62ca2fd](https://github.com/antvis/g2plot/commit/f62ca2fdc2fe1426733eace6753538dd61043754))
+
+##### Bug Fixes
+
+* **sankey:**  depth is not right ([#2503](https://github.com/antvis/g2plot/pull/2503)) ([e349e32d](https://github.com/antvis/g2plot/commit/e349e32de8c97dcc22bffd088eec8df290964811))
+* **gauge-theme:**  仪表盘主题需要放在第一个设置，否则设置主题会失效 ([#2501](https://github.com/antvis/g2plot/pull/2501)) ([cee9c17b](https://github.com/antvis/g2plot/commit/cee9c17be7a487f5df9586820eca237008d01cb5))
+* **issue-2486:**  不直接引用 @antv/matrix-util, 使用 G2 的 Util ([#2499](https://github.com/antvis/g2plot/pull/2499)) ([84fd908b](https://github.com/antvis/g2plot/commit/84fd908b0a1e2d1f32a91cf6fd0c7959f67365e0))
+*  尝试修复词云图单测 ([#2471](https://github.com/antvis/g2plot/pull/2471)) ([ed682f21](https://github.com/antvis/g2plot/commit/ed682f21984d8f014497b79adb8a8bfd23bd4167))
+
+#### 2.3.17 (2021-03-24)
+
+##### Documentation Changes
+
+* **G2Plot Calendar:**  补充组合图表 demo & 增加一个插件图表 ([#2448](https://github.com/antvis/g2plot/pull/2448)) ([772155db](https://github.com/antvis/g2plot/commit/772155db9dea67665bf139ed322ecd47659ae928))
+* **scrollbar:**  补充滚动条滑块的高亮色文档 ([#2449](https://github.com/antvis/g2plot/pull/2449)) ([bfd9e24d](https://github.com/antvis/g2plot/commit/bfd9e24df3301d500cdbaf9918ac1872607267bf))
+* **label-line:** 类型定义补全 ([#2443](https://github.com/antvis/g2plot/pull/2443)) ([33dfa3b1](https://github.com/antvis/g2plot/commit/33dfa3b11713d1367c226b8a4446144028f1bf9b))
+* **tooltip:**  更新 tooltip 关于 marker 的文档 ([#2439](https://github.com/antvis/g2plot/pull/2439)) ([9836e08c](https://github.com/antvis/g2plot/commit/9836e08cb761a031e4aebb908716fe2e2e30b9e4))
+
+##### New Features
+
+* **liquid:**  水波图支持跟随主题色 & 水波图支持 outline 配置样式 & 文档以及 demo 优化 ([#2455](https://github.com/antvis/g2plot/pull/2455)) ([04f2a66c](https://github.com/antvis/g2plot/commit/04f2a66c0f0da10d25d0321be350efef50501cf6))
+* **scatter:**  散点图支持 color 和 shape 同时映射图例字段 & 添加单测 ([#2406](https://github.com/antvis/g2plot/pull/2406)) ([c7b7724e](https://github.com/antvis/g2plot/commit/c7b7724eab6000b7c4cee02af3bec3667e067196))
+* **area:** 面积图支持 startOnZero ([#2444](https://github.com/antvis/g2plot/pull/2444)) ([1cdea551](https://github.com/antvis/g2plot/commit/1cdea551fdcc7e64186ef03b0ab37fc3263a4bcc))
+* **conversion-tag:**  转化分析 tag 添加 elements 信息,方便业务上使用 ([#2441](https://github.com/antvis/g2plot/pull/2441)) ([706942a7](https://github.com/antvis/g2plot/commit/706942a7ac08d45188adef71c7ce61815dd3199d))
+
+##### Bug Fixes
+
+* **dual-axes:** 双轴图 theme 主题设置 ([#2451](https://github.com/antvis/g2plot/pull/2451)) ([69bf536d](https://github.com/antvis/g2plot/commit/69bf536df21399d5730616250f919ad5001e073a))
+* **radial-bar:**  修复玉钰图存在非法数据崩溃问题 ([#2394](https://github.com/antvis/g2plot/pull/2394)) ([#2447](https://github.com/antvis/g2plot/pull/2447)) ([0f2bd788](https://github.com/antvis/g2plot/commit/0f2bd788c27a539822391aa197532ee43b821116))
+
 #### 2.3.16 (2021-03-17)
 
 ##### Documentation Changes
